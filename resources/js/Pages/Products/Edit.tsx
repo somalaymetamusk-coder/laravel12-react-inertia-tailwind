@@ -69,7 +69,7 @@ export default function Edit({ product }: Props) {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        post(`/products/${product.id}`, {
+        post(route('products.update', product.id), {
             forceFormData: true,
         });
     };
@@ -80,7 +80,7 @@ export default function Edit({ product }: Props) {
 
             <div className="mb-6">
                 <Link
-                    href="/products"
+                    href={route('products.index')}
                     className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900"
                 >
                     <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -249,7 +249,7 @@ export default function Edit({ product }: Props) {
                     </div>
 
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3 rounded-b-lg">
-                        <Link href="/products">
+                        <Link href={route('products.index')}>
                             <Button type="button" variant="secondary">
                                 Cancel
                             </Button>

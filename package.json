@@ -9,7 +9,8 @@
     "dependencies": {
         "@inertiajs/react": "^2.0.0",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0"
+        "react-dom": "^19.0.0",
+        "ziggy-js": "^2.4.0"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

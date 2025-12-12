@@ -1,5 +1,14 @@
 import { createInertiaApp } from '@inertiajs/react';
 import { createRoot } from 'react-dom/client';
+import { route as ziggyRoute } from 'ziggy-js';
+
+// Make route function globally available
+declare global {
+    var route: typeof ziggyRoute;
+}
+globalThis.route = (name?: string, params?: Record<string, unknown>, absolute?: boolean) => {
+    return ziggyRoute(name as string, params, absolute, window.Ziggy);
+};
 
 createInertiaApp({
     title: (title) => (title ? `${title} - Laravel` : 'Laravel'),

@@ -52,7 +52,7 @@ export default function Create() {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        post('/products', {
+        post(route('products.store'), {
             forceFormData: true,
         });
     };
@@ -63,7 +63,7 @@ export default function Create() {
 
             <div className="mb-6">
                 <Link
-                    href="/products"
+                    href={route('products.index')}
                     className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900"
                 >
                     <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@ export default function Create() {
                     </div>
 
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3 rounded-b-lg">
-                        <Link href="/products">
+                        <Link href={route('products.index')}>
                             <Button type="button" variant="secondary">
                                 Cancel
                             </Button>

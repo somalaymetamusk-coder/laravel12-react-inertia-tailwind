@@ -14,7 +14,7 @@ export default function Welcome() {
                     A modern e-commerce platform built with Laravel 12, React, Inertia v2, and Tailwind CSS 4
                 </p>
                 <Link
-                    href="/products"
+                    href={route('products.index')}
                     className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
                 >
                     View Products

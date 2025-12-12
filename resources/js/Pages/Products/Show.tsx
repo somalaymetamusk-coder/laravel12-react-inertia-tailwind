@@ -16,7 +16,7 @@ export default function Show({ product }: Props) {
 
     const handleDelete = () => {
         setIsDeleting(true);
-        router.delete(`/products/${product.id}`, {
+        router.delete(route('products.destroy', product.id), {
             onSuccess: () => {
                 setDeleteModal(false);
             },
@@ -49,7 +49,7 @@ export default function Show({ product }: Props) {
 
             <div className="mb-6 flex justify-between items-center">
                 <Link
-                    href="/products"
+                    href={route('products.index')}
                     className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900"
                 >
                     <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ export default function Show({ product }: Props) {
                 </Link>
 
                 <div className="flex gap-3">
-                    <Link href={`/products/${product.id}/edit`}>
+                    <Link href={route('products.edit', product.id)}>
                         <Button variant="secondary">
                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />

@@ -29,7 +29,7 @@ export default function Index({ products }: Props) {
         if (!deleteModal.product) return;
 
         setIsDeleting(true);
-        router.delete(`/products/${deleteModal.product.id}`, {
+        router.delete(route('products.destroy', deleteModal.product.id), {
             onSuccess: () => {
                 closeDeleteModal();
             },
@@ -52,7 +52,7 @@ export default function Index({ products }: Props) {
 
             <div className="mb-6 flex justify-between items-center">
                 <p className="text-gray-600">Manage your product catalog</p>
-                <Link href="/products/create">
+                <Link href={route('products.create')}>
                     <Button>
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -106,7 +106,7 @@ export default function Index({ products }: Props) {
                                     <p className="mt-4 text-lg font-medium">No products found</p>
                                     <p className="mt-2">Get started by creating a new product.</p>
                                     <div className="mt-6">
-                                        <Link href="/products/create">
+                                        <Link href={route('products.create')}>
                                             <Button>Add Product</Button>
                                         </Link>
                                     </div>
@@ -187,7 +187,7 @@ export default function Index({ products }: Props) {
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <div className="flex justify-end gap-2">
                                             <Link
-                                                href={`/products/${product.id}`}
+                                                href={route('products.show', product.id)}
                                                 className="text-gray-600 hover:text-gray-900"
                                             >
                                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +196,7 @@ export default function Index({ products }: Props) {
                                                 </svg>
                                             </Link>
                                             <Link
-                                                href={`/products/${product.id}/edit`}
+                                                href={route('products.edit', product.id)}
                                                 className="text-indigo-600 hover:text-indigo-900"
                                             >
                                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
